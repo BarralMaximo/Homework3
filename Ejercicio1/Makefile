@@ -1,27 +1,26 @@
-test_serializar: example/serializarTest.cpp $(wildcard source/*.cpp)
+testSerializar: example/serializarTest.cpp $(wildcard source/*.cpp)
 	g++ -Wall -Wextra -Wpedantic -std=c++14 -I include -o serializarTest $^
 	./serializarTest
 	rm serializarTest
 
-test_deserializar: example/deserializarTest.cpp $(wildcard source/*.cpp)
+testDeserializar: example/deserializarTest.cpp $(wildcard source/*.cpp)
 	g++ -Wall -Wextra -Wpedantic -std=c++14 -I include -o deserializarTest $^
 	./deserializarTest
 	rm deserializarTest
 
-test: test_serializar test_deserializar
+test: testSerializar testDeserializar
 	rm -f FlightData_serial.bin
 
 
-valgrind_serializar: example/serializarTest.cpp $(wildcard source/*.cpp)
+valgrindSerializar: example/serializarTest.cpp $(wildcard source/*.cpp)
 	g++ -Wall -Wextra -Wpedantic -std=c++14 -g -I include -o serializarTest $^
 	valgrind --leak-check=full --track-origins=yes --show-leak-kinds=all ./serializarTest
 	rm serializarTest
 
-valgrind_deserializar: example/deserializarTest.cpp $(wildcard source/*.cpp)
+valgrindDeserializar: example/deserializarTest.cpp $(wildcard source/*.cpp)
 	g++ -Wall -Wextra -Wpedantic -std=c++14 -g -I include -o deserializarTest $^
 	valgrind --leak-check=full --track-origins=yes --show-leak-kinds=all ./deserializarTest
 	rm deserializarTest
 
-valgrind_test: valgrind_serializar valgrind_deserializar
+valgrindTest: valgrindSerializar valgrindDeserializar
 	rm -f FlightData_serial.bin
-

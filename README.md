@@ -32,7 +32,7 @@ El `Makefile` proporciona objetivos para compilar, ejecutar pruebas, y validar l
 
   
 
-- **`make test_serializar`**:
+- **`make testSerializar`**:
 
 - **Descripción**: Compila y ejecuta las pruebas de serialización definidas en `main/serializarTest.cpp`, junto con todas las implementaciones en `source/*.cpp`.
 
@@ -56,7 +56,7 @@ rm serializarTest
 
   
 
-- **`make test_deserializar`**:
+- **`make testDeserializar`**:
 
 - **Descripción**: Compila y ejecuta las pruebas de deserialización definidas en `main/deserializarTest.cpp`, junto con todas las implementaciones en `source/*.cpp`.
 
@@ -88,9 +88,9 @@ rm deserializarTest
 
 ```bash
 
-make test_serializar
+make testSerializar
 
-make test_deserializar
+make testDeserializar
 
 rm -f FlightData_serial.bin
 
@@ -100,7 +100,7 @@ rm -f FlightData_serial.bin
 
   
 
-- **`make valgrind_serializar`**:
+- **`make valgrindSerializar`**:
 
 - **Descripción**: Compila las pruebas de serialización con información de depuración y las ejecuta con Valgrind para detectar fugas de memoria.
 
@@ -124,7 +124,7 @@ rm serializarTest
 
   
 
-- **`make valgrind_deserializar`**:
+- **`make valgrindDeserializar`**:
 
 - **Descripción**: Compila las pruebas de deserialización con información de depuración y las ejecuta con Valgrind.
 
@@ -148,7 +148,7 @@ rm deserializarTest
 
   
 
-- **`make valgrind_test`**:
+- **`make valgrindTest`**:
 
 - **Descripción**: Ejecuta ambas pruebas de Valgrind (`valgrind_serializar` y `valgrind_deserializar`) y limpia el archivo binario.
 
@@ -156,9 +156,9 @@ rm deserializarTest
 
 ```bash
 
-make valgrind_serializar
+make valgrindSerializar
 
-make valgrind_deserializar
+make valgrindDeserializar
 
 rm -f FlightData_serial.bin
 
